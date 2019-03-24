@@ -21,7 +21,7 @@
                 <th>Variation percentage</th>
                 <th>Recommendation</th>
             </tr>
-            <tr *ngFor="let value of filterSettingsStore.getState().model.Values">
+            <tr *ngFor="let value of getValues()">
                 <td>{{value.Date | date:'yyyy-MM-dd'}}</td>
                 <td>{{value.CloseValue}}</td>
                 <td>{{value.Variation}}</td>

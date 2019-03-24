@@ -8,6 +8,7 @@ import { FilterSettings } from '../model/filterSettings';
 import { IStockPriceService } from '../services/interface/stockPriceService';
 import { ISocialMediaService } from '../services/interface/socialMediaService';
 import { StockSymbolService } from '../services/stockSymbolService';
+import { ISocialMediaPostProvider } from '../providers/interface/socialMediaPostProvider';
 
 @Component({
   selector: 'stock',

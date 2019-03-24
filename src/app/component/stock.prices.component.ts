@@ -5,6 +5,7 @@ import { IAlgorythmService } from '../services/interface/algorythmService';
 import { IStockPriceService } from '../services/interface/stockPriceService';
 import { RecommendationService } from '../services/recommendationService';
 import { Algorythm } from '../model/enums/algorythmEnum';
+import { StockValues } from '../model/stockValues';
 
 @Component({
   selector: 'stock-prices',
@@ -62,6 +63,10 @@ export class StockPricesComponent {
 
   public selectedAlgo(): Algorythm {
     return this.filterSettingsStore.getState().Algorythm;
+  }
+
+  public getValues(): Array<StockValues> {
+    return this.filterSettingsStore.getState().model.Values;
   }
 
 }

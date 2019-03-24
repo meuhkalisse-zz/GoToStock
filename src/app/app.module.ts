@@ -25,34 +25,45 @@ import { SocialCountComponent } from './component/social.count.component';
 import { SocialMediaCountService } from './services/socialMediaCountService';
 import { MockRecommendationProvider } from './providers/mockRecommendationProvider';
 import { RecommendationService } from './services/recommendationService';
+import { TopSocialMediaPostModel } from './model/topSocialMediaPostModel';
+import socialMediaTopPostReducer from './store/reducers/socialMediaPostReducer';
+import { MockSocialMediaPostProvider } from './providers/mockSocialMediaPostProvider';
+import { SocialMediaPostService } from './services/socialMediaPostService';
+import { SocialPostComponent } from './component/social.post.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFontAwesomeModule
   ],
   declarations: [
     AppComponent,
     HeaderComponent,
     StockComponent,
     StockPricesComponent,
-    SocialCountComponent
+    SocialCountComponent,
+    SocialPostComponent
   ],
   providers: [
      {provide: 'StockProvider', useClass: MockStockSymbolProvider},
      {provide: 'SocialMediaCountProvider', useClass: MockSocialMediaCountProvider},
      {provide: 'RecommendationProvider', useClass: MockRecommendationProvider},
+     {provide: 'SocialMediaPostProvider', useClass: MockSocialMediaPostProvider},
      {provide: 'StockPriceService', useClass: MockStockPriceService},
      {provide: 'SocialMediaService', useClass: MockSocialMediaService},
      {provide: 'AlgorythmService', useClass: MockAlgorythmService},
      {provide: 'StockSymbolStore', useFactory:()=>(new Store<Array<StockModel>>(stockSymbolsReducer, null))},
      {provide: 'FilterSettingsStore', useFactory:()=>(new Store<FilterSettings>(filterSettingsReducer, null))},
      {provide: 'SocialMediaCountStore', useFactory:()=>(new Store<number>(socialMediaCountReducer, 0))},
+     {provide: 'SocialMediaPostStore', useFactory:()=>(new Store<TopSocialMediaPostModel>(socialMediaTopPostReducer, null))},
      StockSymbolService,
      SocialMediaCountService,
      RecommendationService,
+     SocialMediaPostService,
      DatePipe
      ],
   bootstrap: [AppComponent]

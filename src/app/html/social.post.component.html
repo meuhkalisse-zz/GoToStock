@@ -1,0 +1,42 @@
+<!-- Those two section should be converted into a component -->
+<div class="allTimePost">
+    <button id="btnTopPost" class="searchBtn" (click)="getAllTimePost()">Get all time post </button>
+    <input type="number" class="defaultInput pad" [value]="topPostCount" (input)="topPostCount = $event.target.value">
+    <div class="socialPost" *ngIf="allTimePost.length > 0">
+        <ul class="dropList">
+            <li class="horizontal" *ngFor="let post of allTimePost">
+                <div class="container">
+                    <div class="box">
+                        <div class="cover">
+                            <span class="title">{{post.WrittenBy}}</span>
+                            <fa class="right" name="{{getSocialMediaImageUrl(post.From)}}"></fa><span></span>
+                            <p class="intro">{{post.Text}}</p>
+                            <p class="date">{{post.PostedOn | date:'yyyy-MM-dd'}}</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="allTimePost">
+    <button id="btnTopPostEach" class="searchBtn" (click)="getTopForEachMedia()">Get all time post for each
+        media</button>
+        <input type="number" class="defaultInput pad" [value]="postCountEach" (input)="postCountEach = $event.target.value">
+        <div class="socialPost" *ngIf="allTimePostEachMedia.length > 0">
+                <ul class="dropList">
+                    <li class="horizontal" *ngFor="let post of allTimePostEachMedia">
+                        <div class="container">
+                            <div class="box">
+                                <div class="cover">
+                                    <span class="title">{{post.WrittenBy}}</span>
+                                    <fa class="right" name="{{getSocialMediaImageUrl(post.From)}}"></fa><span></span>
+                                    <p class="intro">{{post.Text}}</p>
+                                    <p class="date">{{post.PostedOn | date:'yyyy-MM-dd'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+</div>
