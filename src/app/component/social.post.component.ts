@@ -1,9 +1,9 @@
 import { Component, Inject } from '@angular/core';
-import { SocialMediaPostService } from '../services/socialMediaPostService';
 import { Store } from '../store/store';
 import { TopSocialMediaPostModel } from '../model/topSocialMediaPostModel';
 import { SocialMediaPostModel } from '../model/socialMediaPostModel';
 import { SocialMedia } from '../model/enums/socialMedia';
+import { ISocialMediaPostService } from '../services/interface/socialMediaPostService';
 
 @Component({
     selector: 'social-post',
@@ -19,7 +19,7 @@ export class SocialPostComponent {
     public allTimePostEachMedia: Array<SocialMediaPostModel> = [];
     private unSubscribe: UnsubscribeCallback;
 
-    constructor(private socialMediaPostService: SocialMediaPostService,
+    constructor(@Inject('SocialMediaPostService') private socialMediaPostService: ISocialMediaPostService,
         @Inject('SocialMediaPostStore') private postStore: Store<TopSocialMediaPostModel>) {
         this.unSubscribe = this.postStore.subscribe(() => {
             this.allTimePost = this.postStore.getState().AllTimeTopPost;

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { StockModel } from '../model/stockModel';
 import { StockValues } from '../model/stockValues';
 import { IStockPriceService } from './interface/stockPriceService';
 import { FilterSettings } from '../model/filterSettings';

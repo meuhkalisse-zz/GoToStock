@@ -1,14 +1,10 @@
 import { Component, Inject } from '@angular/core';
 import { StockModel } from '../model/stockModel';
 import { DatePipe } from '@angular/common';
-import { MockStockPriceService } from '../services/mockStockPriceService';
-import { IStockSymbolService } from '../services/interface/StockSymbolService';
 import { Store } from '../store/store';
 import { FilterSettings } from '../model/filterSettings';
-import { IStockPriceService } from '../services/interface/stockPriceService';
 import { ISocialMediaService } from '../services/interface/socialMediaService';
-import { StockSymbolService } from '../services/stockSymbolService';
-import { ISocialMediaPostProvider } from '../providers/interface/socialMediaPostProvider';
+import { IStockSymbolService } from '../services/interface/StockSymbolService';
 
 @Component({
   selector: 'stock',
@@ -20,7 +16,7 @@ export class StockComponent {
   public stockSymbolList: Array<StockModel> = [];
   private unSubscribe: any;
 
-  constructor(private stockSymbolService: StockSymbolService,
+  constructor(@Inject('StockSymbolService') private stockSymbolService: IStockSymbolService,
     @Inject('StockSymbolStore') private stockModelsStore: Store<Array<StockModel>>,
     @Inject('FilterSettingsStore') private filterSettingsStore: Store<FilterSettings>,
     @Inject('SocialMediaService') private socialMediaService: ISocialMediaService,
@@ -45,7 +41,7 @@ export class StockComponent {
 
   public filterStocks() {
     let input, filter, span, i, div;
-    input = document.getElementById("searchInput");
+    input = document.getElementById("searchSymbolInput");
     filter = input.value.toUpperCase();
     div = document.getElementById("symbolDropDown");
     span = div.getElementsByTagName("span");

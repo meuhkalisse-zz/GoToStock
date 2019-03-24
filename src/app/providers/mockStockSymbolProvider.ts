@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject, observable } from 'rxjs';
 import { StockModel } from '../model/stockModel';
-import { map, filter, scan } from 'rxjs/operators';
-import { of } from "rxjs";
+import { map } from 'rxjs/operators';
 import { IStockSymbolProvider } from './interface/StockSymbolProvider';
 
 @Injectable({

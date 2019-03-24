@@ -60,10 +60,10 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
      {provide: 'FilterSettingsStore', useFactory:()=>(new Store<FilterSettings>(filterSettingsReducer, null))},
      {provide: 'SocialMediaCountStore', useFactory:()=>(new Store<number>(socialMediaCountReducer, 0))},
      {provide: 'SocialMediaPostStore', useFactory:()=>(new Store<TopSocialMediaPostModel>(socialMediaTopPostReducer, null))},
-     StockSymbolService,
-     SocialMediaCountService,
-     RecommendationService,
-     SocialMediaPostService,
+     {provide: 'StockSymbolService', useClass: StockSymbolService},
+     {provide: 'SocialMediaCountService', useClass: SocialMediaCountService},
+     {provide: 'RecommendationService', useClass: RecommendationService},
+     {provide: 'SocialMediaPostService', useClass: SocialMediaPostService},
      DatePipe
      ],
   bootstrap: [AppComponent]

@@ -1,4 +1,3 @@
-import { StockModel } from 'src/app/model/stockModel';
 import { FilterSettings } from 'src/app/model/filterSettings';
 import { StockValues } from 'src/app/model/stockValues';
 

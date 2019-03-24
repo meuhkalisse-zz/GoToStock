@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ISocialMediaService } from './interface/socialMediaService';
 import { SocialMedia } from '../model/enums/socialMedia';
 

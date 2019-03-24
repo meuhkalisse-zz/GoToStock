@@ -1,8 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { Store } from '../store/store';
-import { StockModel } from '../model/stockModel';
 import { FilterSettings } from '../model/filterSettings';
-import { SocialMediaCountService } from '../services/socialMediaCountService';
+import { ISocialMediaCountService } from '../services/interface/socialMediaCountService';
 
 @Component({
   selector: 'social-count',
@@ -16,7 +15,7 @@ export class SocialCountComponent {
 
   constructor(@Inject('SocialMediaCountStore') private socialCountStore: Store<number>,
                 @Inject('FilterSettingsStore') private filterStore: Store<FilterSettings>,
-                private socialMediaCountService: SocialMediaCountService){
+                @Inject('SocialMediaCountService') private socialMediaCountService: ISocialMediaCountService){
     this.unSubscribe = filterStore.subscribe(() => {
         if(this.filterStore.getState().fetched){
             this.socialMediaCountService.socialMediaCountGenerator(this.filterStore.getState());

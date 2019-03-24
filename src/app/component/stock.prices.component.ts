@@ -3,9 +3,9 @@ import { Store } from '../store/store';
 import { FilterSettings } from '../model/filterSettings';
 import { IAlgorythmService } from '../services/interface/algorythmService';
 import { IStockPriceService } from '../services/interface/stockPriceService';
-import { RecommendationService } from '../services/recommendationService';
 import { Algorythm } from '../model/enums/algorythmEnum';
 import { StockValues } from '../model/stockValues';
+import { IRecommendationService } from '../services/interface/recommendateService';
 
 @Component({
   selector: 'stock-prices',
@@ -21,7 +21,7 @@ export class StockPricesComponent {
   constructor(@Inject('FilterSettingsStore') private filterSettingsStore: Store<FilterSettings>,
             @Inject('StockPriceService') private stockPricesService: IStockPriceService,
               @Inject('AlgorythmService') private algoService: IAlgorythmService,
-              private recommendationService: RecommendationService){
+              @Inject('RecommendationService') private recommendationService: IRecommendationService){
     this.algoList = algoService.getAllAlgorythm();
     this.unSubscribe = filterSettingsStore.subscribe(() => {
       if(this.canFetch())

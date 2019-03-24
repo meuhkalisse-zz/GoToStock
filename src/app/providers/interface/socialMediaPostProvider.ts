@@ -1,4 +1,3 @@
-import { count } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { SocialMediaPostModel } from 'src/app/model/socialMediaPostModel';
 
