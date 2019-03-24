@@ -33,7 +33,7 @@ export class MockSocialMediaPostProvider implements ISocialMediaPostProvider{
         let model = new SocialMediaPostModel();
         model.From = SocialMedia[media === null ? this.getRandomSocialMedia() : media];
         model.PostedOn = new Date();
-        model.Text = "Never gonna give you up";
+        model.Text = "Never gonna give you up Never gonna let you down Never gonna run around and desert you ";
         model.WrittenBy = "Rick Astley"
         return model;
     }

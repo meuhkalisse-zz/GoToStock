@@ -1,21 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { StockModule } from './modules/stock.module';
+import { StockModule } from './stock.module';
 import {DatePipe} from '@angular/common';
 
-import { AppComponent } from './component/app.component';
-import { HeaderComponent } from './component/header.component';
-import { MockStockSymbolProvider } from './providers/mockStockSymbolProvider';
-import { MockStockPriceService } from './services/mockStockPriceService';
-import { MockAlgorythmService } from './services/mockAlgorythmService';
-import { MockSocialMediaCountProvider } from './providers/mockSocialMediaCountProvider';
-import { MockRecommendationProvider } from './providers/mockRecommendationProvider';
-import { RecommendationService } from './services/recommendationService';
-import { MockSocialMediaPostProvider } from './providers/mockSocialMediaPostProvider';
+import { AppComponent } from '../component/app.component';
+import { HeaderComponent } from '../component/header.component';
+import { MockStockSymbolProvider } from '../providers/mockStockSymbolProvider';
+import { MockStockPriceService } from '../services/mockStockPriceService';
+import { MockAlgorythmService } from '../services/mockAlgorythmService';
+import { MockSocialMediaCountProvider } from '../providers/mockSocialMediaCountProvider';
+import { MockRecommendationProvider } from '../providers/mockRecommendationProvider';
+import { RecommendationService } from '../services/recommendationService';
+import { MockSocialMediaPostProvider } from '../providers/mockSocialMediaPostProvider';
 
 @NgModule({
   imports: [
